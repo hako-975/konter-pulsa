@@ -22,6 +22,9 @@ if (!isset($_SESSION['id_user'])) {
 				<a href="user/user.php">User</a>
 			</li>
 			<li>
+				<a href="jenis_barang/jenis_barang.php">Jenis Barang</a>
+			</li>
+			<li>
 				<a href="logout.php">Logout</a>
 			</li>
 		</ul>
