@@ -25,6 +25,9 @@ if (!isset($_SESSION['id_user'])) {
 				<a href="jenis_barang/jenis_barang.php">Jenis Barang</a>
 			</li>
 			<li>
+				<a href="barang/barang.php">Barang</a>
+			</li>
+			<li>
 				<a href="logout.php">Logout</a>
 			</li>
 		</ul>
