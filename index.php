@@ -31,6 +31,9 @@ if (!isset($_SESSION['id_user'])) {
 				<a href="supplier/supplier.php">Supplier</a>
 			</li>
 			<li>
+				<a href="pemasukan_barang/pemasukan_barang.php">Pemasukan Barang</a>
+			</li>
+			<li>
 				<a href="logout.php">Logout</a>
 			</li>
 		</ul>
