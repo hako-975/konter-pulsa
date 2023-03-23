@@ -89,7 +89,7 @@ if (isset($_POST['btnTambahBarang'])) {
 			</select>
 		</div>
 		<div>
-			<button type="submit" name="btnTambahBarang">Tambah  Barang</button>
+			<button type="submit" name="btnTambahBarang">Tambah Barang</button>
 		</div>
 	</form>
 </body>
