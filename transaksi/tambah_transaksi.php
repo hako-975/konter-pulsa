@@ -10,7 +10,7 @@ $tanggal_transaksi = date('Y-m-d H:i:s');
 
 $id_user = htmlspecialchars($_SESSION['id_user']);
 
-$tambah_transaksi = mysqli_query($koneksi, "INSERT INTO transaksi VALUES('', '$tanggal_transaksi', '', '$id_user')");
+$tambah_transaksi = mysqli_query($koneksi, "INSERT INTO transaksi VALUES('', '$tanggal_transaksi', '', '', '', '$id_user')");
 $id_transaksi = mysqli_insert_id($koneksi);
 if ($tambah_transaksi) {
 	echo "
