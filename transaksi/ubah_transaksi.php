@@ -49,6 +49,14 @@ if (isset($_POST['btnUbahTransaksi'])) {
 			<input style="cursor: not-allowed;" type="number" disabled name="total_harga" id="total_harga" value="<?= $data_transaksi['total_harga']; ?>" required>
 		</div>
 		<div>
+			<label for="bayar">Bayar</label>
+			<input style="cursor: not-allowed;" type="number" disabled name="bayar" id="bayar" value="<?= $data_transaksi['bayar']; ?>" required>
+		</div>
+		<div>
+			<label for="kembalian">Kembalian</label>
+			<input style="cursor: not-allowed;" type="number" disabled name="kembalian" id="kembalian" value="<?= $data_transaksi['kembalian']; ?>" required>
+		</div>
+		<div>
 			<label for="id_user">User</label>
 			<input style="cursor: not-allowed;" type="text" disabled name="id_user" id="id_user" value="<?= $data_transaksi['username']; ?>" required>
 		</div>
