@@ -23,6 +23,15 @@ $barangJson = json_encode($barang_arr);
 $data_detail_transaksi = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT * FROM detail_transaksi INNER JOIN barang ON detail_transaksi.id_barang = barang.id_barang WHERE id_detail_transaksi = '$id_detail_transaksi'"));
 
 
+if ($data_detail_transaksi == null) {
+	echo "
+		<script>
+			window.location.href='transaksi.php';
+		</script>
+	";
+	exit;
+}
+
 if (isset($_POST['btnUbahDetailTransaksi'])) {
 	$id_barang = htmlspecialchars($_POST['id_barang']);
 	$kuantitas = htmlspecialchars($_POST['kuantitas']);
@@ -43,6 +52,19 @@ if (isset($_POST['btnUbahDetailTransaksi'])) {
 	$get_total_harga = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT SUM(subtotal) as total_harga FROM detail_transaksi WHERE id_transaksi = '$id_transaksi'"));
 	$total_harga = $get_total_harga['total_harga'];
 	$update_total_harga = mysqli_query($koneksi, "UPDATE transaksi SET total_harga = '$total_harga' WHERE id_transaksi = '$id_transaksi'");
+
+	$kuantitas_old = $data_detail_transaksi['kuantitas'];
+	$id_barang_old = $data_detail_transaksi['id_barang'];
+	
+	if ($id_barang_old == $id_barang) {
+		mysqli_query($koneksi, "UPDATE barang SET stok_barang = (stok_barang + '$kuantitas_old') - '$kuantitas' WHERE id_barang = '$id_barang'");
+	}
+
+	if ($id_barang_old != $id_barang) {
+		mysqli_query($koneksi, "UPDATE barang SET stok_barang = (stok_barang + '$kuantitas_old') WHERE id_barang = '$id_barang_old'");
+		mysqli_query($koneksi, "UPDATE barang SET stok_barang = stok_barang - '$kuantitas' WHERE id_barang = '$id_barang'");
+	}
+
 
 	if ($ubah_detail_transaksi) {
 		echo "

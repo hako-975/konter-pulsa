@@ -6,10 +6,20 @@ if (!isset($_SESSION['id_user'])) {
 	exit;
 }
 
+
 $id_transaksi = htmlspecialchars($_GET['id_transaksi']);
+
 
 $data_transaksi = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT * FROM transaksi INNER JOIN user ON transaksi.id_user = user.id_user WHERE transaksi.id_transaksi = '$id_transaksi'"));
 
+if ($data_transaksi == null) {
+	echo "
+		<script>
+			window.location.href='transaksi.php';
+		</script>
+	";
+	exit;
+}
 
 $detail_transaksi = mysqli_query($koneksi, "SELECT * FROM detail_transaksi INNER JOIN transaksi ON detail_transaksi.id_transaksi = transaksi.id_transaksi INNER JOIN barang ON detail_transaksi.id_barang = barang.id_barang WHERE detail_transaksi.id_transaksi = '$id_transaksi' ORDER BY barang.nama_barang ASC");
 

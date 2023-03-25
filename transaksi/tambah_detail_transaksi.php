@@ -40,6 +40,9 @@ if (isset($_POST['btnTambahDetailTransaksi'])) {
 	$total_harga = $get_total_harga['total_harga'];
 	$update_total_harga = mysqli_query($koneksi, "UPDATE transaksi SET total_harga = '$total_harga' WHERE id_transaksi = '$id_transaksi'");
 
+	$update_stok_barang = mysqli_query($koneksi, "UPDATE barang SET stok_barang = stok_barang - '$kuantitas' WHERE id_barang = '$id_barang'");
+
+
 	if ($tambah_detail_transaksi) {
 		echo "
 			<script>
