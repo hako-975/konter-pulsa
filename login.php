@@ -3,7 +3,7 @@ require_once 'koneksi.php';
 
 // check login
 if (isset($_SESSION['id_user'])) {
-	header("Location: index.php");
+    header("Location: ".BASE_URL."index.php");
 	exit;
 }
 

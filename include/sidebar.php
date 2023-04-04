@@ -2,6 +2,9 @@
 	<button class="close-btn">&times;</button>
 	<ul>
 		<li>
+			<a href="<?= BASE_URL; ?>index.php">Dashboard</a>
+		</li>
+		<li>
 			<a href="<?= BASE_URL; ?>user/profile.php">Profile</a>
 		</li>
 		<li>

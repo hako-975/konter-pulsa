@@ -2,13 +2,13 @@
 require_once '../koneksi.php';
 
 if (!isset($_SESSION['id_user'])) {
-	header("Location: login.php");
+	header("Location: ".BASE_URL."login.php");
 	exit;
 }
 
 $id_user = htmlspecialchars($_SESSION['id_user']);
 
-$data_user = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT * FROM user WHERE id_user = '$id_user'"));
+$data_profile = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT * FROM user WHERE id_user = '$id_user'"));
 
 if (isset($_POST['btnUbahPassword'])) {
 	$password_lama = htmlspecialchars($_POST['password_lama']);
@@ -27,7 +27,7 @@ if (isset($_POST['btnUbahPassword'])) {
 	}
 
 	// check password lama
-	if (!password_verify($password_lama, $data_user['password'])) {
+	if (!password_verify($password_lama, $data_profile['password'])) {
 		echo "
 			<script>
 				alert('Password lama tidak sesuai!');
@@ -48,6 +48,7 @@ if (isset($_POST['btnUbahPassword'])) {
 				window.location.href='profile.php';
 			</script>
 		";
+		exit;
 	} else {
 		echo "
 			<script>
@@ -55,6 +56,7 @@ if (isset($_POST['btnUbahPassword'])) {
 				window.history.back();
 			</script>
 		";
+		exit;
 	}
 }
 
@@ -62,26 +64,39 @@ if (isset($_POST['btnUbahPassword'])) {
 
 <html>
 <head>
-	<title>Ubah Password - <?= $data_user['username']; ?></title>
+	<title>Ubah Password - <?= $data_profile['username']; ?></title>
+	<?php include_once '../include/head.php'; ?>
 </head>
-<body>
-	<a href="profile.php">Kembali</a>
-	<form method="post">
-		<div>
-			<label for="password_lama">Password Lama</label>
-			<input type="password" name="password_lama" id="password_lama" required>
+<body class="bg-gradient">
+	<div id="preloader">
+      <div class="loader"></div>
+    </div>
+    <?php include_once '../include/topbar.php' ?>
+	<?php include_once '../include/sidebar.php'; ?>
+	<div class="main-content">
+		<a href="<?= BASE_URL; ?>user/profile.php" class="btn">Kembali</a>
+		<div class="my">
+			<h1>Ubah Password - <?= $data_profile['username']; ?></h1>
+			<form method="post">
+				<div class="form-group">
+					<label for="password_lama">Password Lama</label>
+					<input type="password" name="password_lama" id="password_lama" class="form-input" required>
+				</div>
+				<div class="form-group">
+					<label for="password_baru">Password Baru</label>
+					<input type="password" name="password_baru" id="password_baru" class="form-input" required>
+				</div>
+				<div class="form-group">
+					<label for="verifikasi_password_baru">Verifikasi Password Baru</label>
+					<input type="password" name="verifikasi_password_baru" id="verifikasi_password_baru" class="form-input" required>
+				</div>
+				<div class="form-group">
+					<button type="submit" name="btnUbahPassword" class="btn">Ubah Password</button>
+				</div>
+			</form>
 		</div>
-		<div>
-			<label for="password_baru">Password Baru</label>
-			<input type="password" name="password_baru" id="password_baru" required>
-		</div>
-		<div>
-			<label for="verifikasi_password_baru">Verifikasi Password Baru</label>
-			<input type="password" name="verifikasi_password_baru" id="verifikasi_password_baru" required>
-		</div>
-		<div>
-			<button type="submit" name="btnUbahPassword">Ubah Password</button>
-		</div>
-	</form>
+	</div>
+	
+    <?php include_once '../include/script.php'; ?>
 </body>
 </html>

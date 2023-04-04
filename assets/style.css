@@ -77,6 +77,16 @@ body {
     text-align: center;
 }
 
+.th {
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.my {
+    margin: 1rem 0;
+}
+
 .sidebar {
     position: fixed;
     top: 0;
@@ -106,10 +116,14 @@ body {
 }
 
 .main-content {
-    color: white;
     margin-left: 300px;
-    padding: 0 20px;
+    padding: 20px;
     transition: all 0.3s ease-in-out;
+}
+
+.main-content h1 {
+    padding: 0;
+    margin: 0;
 }
 
 .close-btn {
@@ -118,7 +132,6 @@ body {
     right: 0;
     font-size: 30px;
     padding: 0 10px;
-    background-color: transparent;
     cursor: pointer;
     background: #071a52;
     border-radius: 5px;
@@ -132,7 +145,6 @@ body {
     top: 10px;
     font-size: 30px;
     padding: 0 10px;
-    background-color: transparent;
     cursor: pointer;
     border-radius: 5px;
     background: #071a52;
@@ -167,6 +179,19 @@ body {
 .topbar h1 {
     font-size: 1.2em;
     margin: 0;
-    color: white;
 }
 
+.btn {
+    display: inline-block;
+    font-size: 1rem;
+    color: black;
+    text-align: center;
+    border: 1px solid black;
+    padding: 0.375rem 0.75rem;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    cursor: pointer;
+    background: #071a52;
+    border: none;
+    color: white;
+}

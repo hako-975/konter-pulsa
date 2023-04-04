@@ -1,6 +1,6 @@
 <?php 
 	require_once 'koneksi.php';
 	session_destroy();
-	header("Location: login.php");
+	header("Location: ".BASE_URL."login.php");
 	exit;
 ?>
