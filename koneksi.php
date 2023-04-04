@@ -1,4 +1,6 @@
 <?php 
+define('BASE_URL', 'http://localhost/konter_pulsa/');
+
 session_start();
 date_default_timezone_set("Asia/Jakarta");
 $host = 'localhost';

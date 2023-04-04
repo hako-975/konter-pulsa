@@ -6,40 +6,25 @@ if (!isset($_SESSION['id_user'])) {
 	exit;
 }
 
+$id_user = htmlspecialchars($_SESSION['id_user']);
+$data_profile = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT * FROM user WHERE id_user = '$id_user'"));
 ?>
 
 <html>
 <head>
-	<title>Dashboard</title>
+	<title>Dashboard - Konter Pulsa</title>
+	<?php include_once 'include/head.php'; ?>
 </head>
-<body>
-	<nav>
-		<ul>
-			<li>
-				<a href="user/profile.php">Profile</a>
-			</li>
-			<li>
-				<a href="user/user.php">User</a>
-			</li>
-			<li>
-				<a href="jenis_barang/jenis_barang.php">Jenis Barang</a>
-			</li>
-			<li>
-				<a href="barang/barang.php">Barang</a>
-			</li>
-			<li>
-				<a href="supplier/supplier.php">Supplier</a>
-			</li>
-			<li>
-				<a href="pemasukan_barang/pemasukan_barang.php">Pemasukan Barang</a>
-			</li>
-			<li>
-				<a href="transaksi/transaksi.php">Transaksi</a>
-			</li>
-			<li>
-				<a href="logout.php">Logout</a>
-			</li>
-		</ul>
-	</nav>
+<body class="bg-gradient">
+	<div id="preloader">
+      <div class="loader"></div>
+    </div>
+	<?php include_once 'include/topbar.php' ?>
+	<?php include_once 'include/sidebar.php'; ?>
+	<div class="main-content">
+		<h1>Dashboard</h1>
+	</div>
+	
+    <?php include_once 'include/script.php'; ?>
 </body>
 </html>

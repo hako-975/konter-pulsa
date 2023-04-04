@@ -47,21 +47,29 @@ if (isset($_POST['btnLogin'])) {
 
 <html>
 <head>
-	<title>Login</title>
+	<title>Login - Konter Pulsa</title>
+    <?php include_once 'include/head.php'; ?>
 </head>
-<body>
-	<form method="post">
-		<div>
-			<label for="username">Username</label>
-			<input type="text" name="username" id="username" required>
-		</div>
-		<div>
-			<label for="password">Password</label>
-			<input type="password" name="password" id="password" required>
-		</div>
-		<div>
-			<button type="submit" name="btnLogin">Login</button>
-		</div>
-	</form>
+<body class="bg-gradient">
+    <div id="preloader">
+      <div class="loader"></div>
+    </div>
+    <div class="form-login">
+        <h2 class="text-center">Form Login <br> Konter Pulsa</h2>
+        <form method="post">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" class="form-input" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" class="form-input" required>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="form-input bg-button" name="btnLogin">Login</button>
+            </div>
+        </form>
+    </div>
+    <?php include_once 'include/script.php'; ?>
 </body>
 </html>
