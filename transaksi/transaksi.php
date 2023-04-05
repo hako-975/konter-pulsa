@@ -15,7 +15,7 @@ $data_profile = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT * FROM user WH
 <html>
 <head>
 	<title>Transaksi</title>
-<?php include_once '../include/head.php'; ?>
+	<?php include_once '../include/head.php'; ?>
 </head>
 <body class="bg-gradient">
 	<div id="preloader">
