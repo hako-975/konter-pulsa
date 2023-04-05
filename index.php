@@ -22,7 +22,9 @@ $data_profile = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT * FROM user WH
 	<?php include_once 'include/topbar.php' ?>
 	<?php include_once 'include/sidebar.php'; ?>
 	<div class="main-content">
-		<h1>Dashboard</h1>
+		<div class="my">
+			<h1>Dashboard</h1>
+		</div>
 	</div>
 	
     <?php include_once 'include/script.php'; ?>

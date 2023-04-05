@@ -26,6 +26,9 @@
 			<a href="<?= BASE_URL; ?>transaksi/transaksi.php">Transaksi</a>
 		</li>
 		<li>
+			<a href="<?= BASE_URL; ?>laporan/laporan.php">Laporan</a>
+		</li>
+		<li>
 			<a href="<?= BASE_URL; ?>logout.php">Logout</a>
 		</li>
 	</ul>

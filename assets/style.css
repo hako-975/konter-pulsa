@@ -77,10 +77,16 @@ body {
     text-align: center;
 }
 
-.th {
+.th-profile {
     padding: 0;
     margin: 0;
     text-align: left;
+    width: 130px;
+}
+
+.thead {
+    background-color: #2C2C2C;
+    color: white;
 }
 
 .my {
@@ -194,4 +200,16 @@ body {
     background: #071a52;
     border: none;
     color: white;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.float-right {
+    float: right;
+}
+
+table {
+    width: 100%;
 }
