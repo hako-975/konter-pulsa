@@ -74,8 +74,8 @@ if (isset($_POST['btnBayar'])) {
 							<td><?= $ddt['kuantitas']; ?></td>
 							<td>Rp. <?= str_replace(",", ".", number_format($ddt['subtotal'])); ?></td>
 							<td>
-								<a href="ubah_detail_transaksi.php?id_detail_transaksi=<?= $ddt['id_detail_transaksi']; ?>&id_transaksi=<?= $id_transaksi; ?>">Ubah</a>
-								<a onclick="return confirm('Apakah Anda yakin ingin menghapus transaksi <?= $ddt['nama_barang']; ?>?')" href="hapus_detail_transaksi.php?id_detail_transaksi=<?= $ddt['id_detail_transaksi']; ?>&id_transaksi=<?= $id_transaksi; ?>">Hapus</a>
+								<a href="ubah_detail_transaksi.php?id_detail_transaksi=<?= $ddt['id_detail_transaksi']; ?>&id_transaksi=<?= $id_transaksi; ?>" class="btn">Ubah</a>
+								<a onclick="return confirm('Apakah Anda yakin ingin menghapus transaksi <?= $ddt['nama_barang']; ?>?')" href="hapus_detail_transaksi.php?id_detail_transaksi=<?= $ddt['id_detail_transaksi']; ?>&id_transaksi=<?= $id_transaksi; ?>" class="btn">Hapus</a>
 							</td>
 						</tr>
 					<?php endforeach ?>

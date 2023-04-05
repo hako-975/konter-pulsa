@@ -37,6 +37,7 @@ if (isset($_POST['btnUbahUser'])) {
 				window.history.back();
 			</script>
 		";
+		exit;
 	}
 
 	$ubah_user = mysqli_query($koneksi, "UPDATE user SET username = '$username', nama_lengkap = '$nama_lengkap', no_telp_user = '$no_telp_user' WHERE id_user = '$id_user'");
