@@ -34,6 +34,7 @@ if ($hapus_pemasukan_barang) {
 			window.location.href='pemasukan_barang.php';
 		</script>
 	";
+	exit;
 } else {
 	echo "
 		<script>
@@ -41,6 +42,7 @@ if ($hapus_pemasukan_barang) {
 			window.location.href='pemasukan_barang.php';
 		</script>
 	";
+	exit;
 }
 
 ?>

@@ -28,6 +28,7 @@ if ($hapus_supplier) {
 			window.location.href='supplier.php';
 		</script>
 	";
+	exit;
 } else {
 	echo "
 		<script>
@@ -35,6 +36,7 @@ if ($hapus_supplier) {
 			window.location.href='supplier.php';
 		</script>
 	";
+	exit;
 }
 
 ?>

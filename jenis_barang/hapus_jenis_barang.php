@@ -28,6 +28,7 @@ if ($hapus_jenis_barang) {
 			window.location.href='jenis_barang.php';
 		</script>
 	";
+	exit;
 } else {
 	echo "
 		<script>
@@ -35,6 +36,7 @@ if ($hapus_jenis_barang) {
 			window.location.href='jenis_barang.php';
 		</script>
 	";
+	exit;
 }
 
 ?>

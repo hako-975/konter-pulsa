@@ -49,6 +49,7 @@ if (isset($_POST['btnUbahUser'])) {
 				window.location.href='user.php';
 			</script>
 		";
+		exit;
 	} else {
 		echo "
 			<script>
@@ -56,6 +57,7 @@ if (isset($_POST['btnUbahUser'])) {
 				window.history.back();
 			</script>
 		";
+		exit;
 	}
 }
 

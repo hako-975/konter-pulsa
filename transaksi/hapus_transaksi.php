@@ -17,6 +17,7 @@ if ($hapus_transaksi) {
 			window.location.href='transaksi.php';
 		</script>
 	";
+	exit;
 } else {
 	echo "
 		<script>
@@ -24,6 +25,7 @@ if ($hapus_transaksi) {
 			window.location.href='transaksi.php';
 		</script>
 	";
+	exit;
 }
 
 ?>

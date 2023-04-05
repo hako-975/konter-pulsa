@@ -18,12 +18,14 @@ if ($tambah_transaksi) {
 			window.location.href='detail_transaksi.php?id_transaksi=$id_transaksi';
 		</script>
 	";
+	exit;
 } else {
 	echo "
 		<script>
 			window.history.back();
 		</script>
 	";
+	exit;
 }
 
 ?>

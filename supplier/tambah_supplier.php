@@ -33,6 +33,7 @@ if (isset($_POST['btnTambahSupplier'])) {
 				window.location.href='supplier.php';
 			</script>
 		";
+		exit;
 	} else {
 		echo "
 			<script>
@@ -40,6 +41,7 @@ if (isset($_POST['btnTambahSupplier'])) {
 				window.history.back();
 			</script>
 		";
+		exit;
 	}
 }
 

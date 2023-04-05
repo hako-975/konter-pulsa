@@ -40,6 +40,7 @@ if ($hapus_user) {
 			window.location.href='user.php';
 		</script>
 	";
+	exit;
 } else {
 	echo "
 		<script>
@@ -47,6 +48,7 @@ if ($hapus_user) {
 			window.location.href='user.php';
 		</script>
 	";
+	exit;
 }
 
 ?>

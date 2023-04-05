@@ -32,6 +32,7 @@ if (isset($_POST['btnTambahJenisBarang'])) {
 				window.location.href='jenis_barang.php';
 			</script>
 		";
+		exit;
 	} else {
 		echo "
 			<script>
@@ -39,6 +40,7 @@ if (isset($_POST['btnTambahJenisBarang'])) {
 				window.history.back();
 			</script>
 		";
+		exit;
 	}
 }
 

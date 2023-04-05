@@ -24,6 +24,7 @@ if (isset($_POST['btnUbahTransaksi'])) {
 				window.location.href='transaksi.php';
 			</script>
 		";
+		exit;
 	} else {
 		echo "
 			<script>
@@ -31,6 +32,7 @@ if (isset($_POST['btnUbahTransaksi'])) {
 				window.history.back();
 			</script>
 		";
+		exit;
 	}
 }
 

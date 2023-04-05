@@ -60,6 +60,7 @@ if (isset($_POST['btnTambahUser'])) {
 				window.location.href='user.php';
 			</script>
 		";
+		exit;
 	} else {
 		echo "
 			<script>
@@ -67,6 +68,7 @@ if (isset($_POST['btnTambahUser'])) {
 				window.history.back();
 			</script>
 		";
+		exit;
 	}
 }
 

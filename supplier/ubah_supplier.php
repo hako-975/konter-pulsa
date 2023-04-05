@@ -36,6 +36,7 @@ if (isset($_POST['btnUbahSupplier'])) {
 				window.location.href='supplier.php';
 			</script>
 		";
+		exit;
 	} else {
 		echo "
 			<script>
@@ -43,6 +44,7 @@ if (isset($_POST['btnUbahSupplier'])) {
 				window.history.back();
 			</script>
 		";
+		exit;
 	}
 }
 

@@ -53,6 +53,7 @@ if (isset($_POST['btnTambahDetailTransaksi'])) {
 				window.location.href='detail_transaksi.php?id_transaksi=$id_transaksi';
 			</script>
 		";
+		exit;
 	} else {
 		echo "
 			<script>
@@ -60,6 +61,7 @@ if (isset($_POST['btnTambahDetailTransaksi'])) {
 				window.history.back();
 			</script>
 		";
+		exit;
 	}
 }
 

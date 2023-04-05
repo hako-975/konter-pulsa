@@ -50,6 +50,7 @@ if (isset($_POST['btnUbahBarang'])) {
 				window.location.href='barang.php';
 			</script>
 		";
+		exit;
 	} else {
 		echo "
 			<script>
@@ -57,6 +58,7 @@ if (isset($_POST['btnUbahBarang'])) {
 				window.history.back();
 			</script>
 		";
+		exit;
 	}
 }
 
