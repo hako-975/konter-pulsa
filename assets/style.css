@@ -85,7 +85,7 @@ body {
 }
 
 .thead {
-    background-color: #2C2C2C;
+    background-color: #071a52;
     color: white;
 }
 
@@ -212,4 +212,24 @@ body {
 
 table {
     width: 100%;
+}
+
+.card {
+    border: 1px solid black; 
+    width: 200px; 
+    padding: 0 20px; 
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.card h3 {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.bg-black {
+    border: none;
+    height: 2px;
+    background-color: black;
+    border-radius: 5px;
 }
