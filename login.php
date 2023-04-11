@@ -55,6 +55,7 @@ if (isset($_POST['btnLogin'])) {
       <div class="loader"></div>
     </div>
     <div class="form-login">
+        <img src="<?= BASE_URL; ?>assets/img/logo.png" alt="logo" width="100" class="logo">
         <h2 class="text-center">Form Login <br> Konter Pulsa</h2>
         <form method="post">
             <div class="form-group">

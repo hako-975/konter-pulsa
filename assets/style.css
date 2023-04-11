@@ -233,3 +233,13 @@ table {
     background-color: black;
     border-radius: 5px;
 }
+
+.logo {
+  width: 100px;
+  display: block;
+  margin: auto;
+  background-color: white;
+  padding: 10px;
+  border-radius: 15px;
+  box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.5);
+}
