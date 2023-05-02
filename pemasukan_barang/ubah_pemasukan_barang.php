@@ -68,7 +68,7 @@ if (isset($_POST['btnUbahPemasukanBarang'])) {
     <?php include_once '../include/topbar.php' ?>
 	<?php include_once '../include/sidebar.php'; ?>
 	<div class="main-content">
-		<a href="<?= BASE_URL; ?>jenis_barang/jenis_barang.php" class="btn">Kembali</a>
+		<a href="<?= BASE_URL; ?>pemasukan_barang/pemasukan_barang.php" class="btn">Kembali</a>
 		<div class="my">
 			<h1>Ubah Pemasukan Barang - <?= $data_pemasukan_barang['nama_barang']; ?></h1>
 			<form method="post">

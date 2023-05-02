@@ -46,7 +46,7 @@ $data_profile = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT * FROM user WH
 			</table>
 		</div>
 		<a href="ubah_profile.php" class="btn">Ubah Profile</a>
-		<a href="ubah_password.php" class="btn">Ganti Password</a>
+		<a href="ubah_password.php" class="btn">Ubah Password</a>
 	</div>
 	
     <?php include_once '../include/script.php'; ?>
