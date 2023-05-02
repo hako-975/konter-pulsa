@@ -47,7 +47,7 @@ $data_profile = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT * FROM user WH
 							<td><?= $i++; ?></td>
 							<td><?= $dpb['nama_barang']; ?></td>
 							<td><?= $dpb['nama_supplier']; ?></td>
-							<td><?= $dpb['tanggal_pemasukan']; ?></td>
+							<td><?= date("d-m-Y, H:i", strtotime($dpb['tanggal_pemasukan'])); ?></td>
 							<td><?= $dpb['jumlah_pemasukan']; ?></td>
 							<?php if ($data_profile['hak_akses'] == 'administrator'): ?>
 								<td>

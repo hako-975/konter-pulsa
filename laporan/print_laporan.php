@@ -30,13 +30,13 @@ $data_profile = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT * FROM user WH
 
  <html>
  <head>
-     <title>Laporan Konter Pulsa Dari Tanggal <?= $dari_tanggal; ?> Sampai Tanggal <?= $sampai_tanggal; ?></title>
+     <title>Laporan Konter Pulsa Dari Tanggal <?= date("d-m-Y", strtotime($dari_tanggal)); ?> Sampai Tanggal <?= date("d-m-Y", strtotime($sampai_tanggal)); ?></title>
     <link rel="icon" href="<?= BASE_URL; ?>assets/img/logo.png">
  </head>
  <body>
     <img style="display: block; text-align: center; margin: 0 auto;" src="<?= BASE_URL; ?>assets/img/logo.png" alt="Logo" width="100">
-    <h3 style="text-align: center;">Laporan Konter Pulsa - Dari Tanggal <?= $dari_tanggal; ?> Sampai Tanggal <?= $sampai_tanggal; ?></h3>
-    <h4>Omset: Rp. <?= str_replace(",", ".", number_format($omset['omset'])); ?>, Laba: Rp. <?= str_replace(",", ".", number_format($laba['laba'])); ?>, <?php if ($barang_paling_laku): ?>Barang Terlaku: <?= ucwords($barang_paling_laku['nama_barang']); ?> - <?= $barang_paling_laku['laku']; ?><?php endif ?></h4>
+    <h3 style="text-align: center;">Laporan Konter Pulsa - Dari Tanggal <?= date("d-m-Y", strtotime($dari_tanggal)); ?> Sampai Tanggal <?= date("d-m-Y", strtotime($sampai_tanggal)); ?></h3>
+    <h4>Omset: Rp. <?= str_replace(",", ".", number_format($omset['omset'])); ?>, Laba: Rp. <?= str_replace(",", ".", number_format($laba['laba'])); ?>, <?php if ($barang_paling_laku): ?>Barang Terlaku: <?= strlen($barang_paling_laku['nama_barang']) <= 34 ? $barang_paling_laku['nama_barang'] : substr($barang_paling_laku['nama_barang'], 0, 34) . '...'; ?> (<?= $barang_paling_laku['laku']; ?>)<?php endif ?></h4>
      <table border="1" cellspacing="0" cellpadding="10">
         <thead>
             <tr>
@@ -58,7 +58,7 @@ $data_profile = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT * FROM user WH
                  ?>
                 <tr>
                     <td><?= $i++; ?></td>
-                    <td><?= $dt['tanggal_transaksi']; ?></td>
+                    <td><?= date("d-m-Y, H:i", strtotime($dt['tanggal_transaksi'])); ?></td>
                     <td>Rp. <?= str_replace(",", ".", number_format($dt['total_harga'])); ?></td>
                     <td>Rp. <?= str_replace(",", ".", number_format($dt['bayar'])); ?></td>
                     <td>Rp. <?= str_replace(",", ".", number_format($dt['kembalian'])); ?></td>

@@ -49,7 +49,7 @@ $transaksi = mysqli_query($koneksi, "SELECT * FROM transaksi INNER JOIN user ON 
 			<div class="card">
 				<h3>Barang Paling Laku</h3>
 				<?php if ($barang_paling_laku): ?>
-	                <h4><?= $barang_paling_laku['nama_barang']; ?> (<?= $barang_paling_laku['laku']; ?>)</h4>
+	                <h4><a class="link" href="<?= BASE_URL; ?>barang/ubah_barang.php?id_barang=<?= $barang_paling_laku['id_barang']; ?>"><?= strlen($barang_paling_laku['nama_barang']) <= 17 ? $barang_paling_laku['nama_barang'] : substr($barang_paling_laku['nama_barang'], 0, 17) . '...'; ?> (<?= $barang_paling_laku['laku']; ?>)</a></h4>
 	            <?php else: ?>
 	                <h4>Tidak Ada</h4>
 	            <?php endif ?>
@@ -76,15 +76,15 @@ $transaksi = mysqli_query($koneksi, "SELECT * FROM transaksi INNER JOIN user ON 
 					<?php foreach ($transaksi as $dt): ?>
 						<tr>
 							<td><?= $i++; ?></td>
-							<td><?= $dt['tanggal_transaksi']; ?></td>
+							<td><?= date("d-m-Y, H:i", strtotime($dt['tanggal_transaksi'])); ?></td>
 							<td>Rp. <?= str_replace(",", ".", number_format($dt['total_harga'])); ?></td>
 							<td>Rp. <?= str_replace(",", ".", number_format($dt['bayar'])); ?></td>
 							<td>Rp. <?= str_replace(",", ".", number_format($dt['kembalian'])); ?></td>
 							<td><?= $dt['username']; ?></td>
 							<td>
-								<a href="detail_transaksi.php?id_transaksi=<?= $dt['id_transaksi']; ?>" class="btn"><?php if ($dt['bayar'] == 0): ?> Bayar <?php else: ?> Detail <?php endif ?></a>
-								<a href="ubah_transaksi.php?id_transaksi=<?= $dt['id_transaksi']; ?>" class="btn">Ubah</a>
-								<a onclick="return confirm('Apakah Anda yakin ingin menghapus Transaksi?')" href="hapus_transaksi.php?id_transaksi=<?= $dt['id_transaksi']; ?>" class="btn">Hapus</a>
+								<a href="transaksi/detail_transaksi.php?id_transaksi=<?= $dt['id_transaksi']; ?>" class="btn"><?php if ($dt['bayar'] == 0): ?> Bayar <?php else: ?> Detail <?php endif ?></a>
+								<a href="transaksi/ubah_transaksi.php?id_transaksi=<?= $dt['id_transaksi']; ?>" class="btn">Ubah</a>
+								<a onclick="return confirm('Apakah Anda yakin ingin menghapus Transaksi?')" href="transaksi/hapus_transaksi.php?id_transaksi=<?= $dt['id_transaksi']; ?>" class="btn">Hapus</a>
 							</td>
 						</tr>
 					<?php endforeach ?>

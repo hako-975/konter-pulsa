@@ -55,7 +55,7 @@ $data_profile = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT * FROM user WH
             </form>
             <?php if (isset($_GET['btnLaporan'])): ?>
 				<a target="_blank" href="<?= BASE_URL; ?>laporan/print_laporan.php?dari_tanggal=<?= $dari_tanggal; ?>&sampai_tanggal=<?= $sampai_tanggal; ?>" class="btn">Print</a>
-				<h3 style="text-align: center;">Laporan Yuda Cell - Dari Tanggal <?= $dari_tanggal; ?> Sampai Tanggal <?= $sampai_tanggal; ?></h3>
+				<h3 style="text-align: center;">Laporan Yuda Cell - Dari Tanggal <?= date("d-m-Y", strtotime($dari_tanggal)); ?> Sampai Tanggal <?= date("d-m-Y", strtotime($sampai_tanggal)); ?></h3>
 			    <h4>Omset: Rp. <?= str_replace(",", ".", number_format($omset['omset'])); ?></h4>
 			    <h4>Laba: Rp. <?= str_replace(",", ".", number_format($laba['laba'])); ?></h4>
 			    <?php if ($barang_paling_laku): ?>
@@ -82,7 +82,7 @@ $data_profile = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT * FROM user WH
 		                     ?>
 		                    <tr>
 		                        <td><?= $i++; ?></td>
-		                        <td><?= $dt['tanggal_transaksi']; ?></td>
+    							<td><?= $dt['tanggal_transaksi']; ?></td>
 		                        <td>Rp. <?= str_replace(",", ".", number_format($dt['total_harga'])); ?></td>
 		                        <td>Rp. <?= str_replace(",", ".", number_format($dt['bayar'])); ?></td>
 		                        <td>Rp. <?= str_replace(",", ".", number_format($dt['kembalian'])); ?></td>

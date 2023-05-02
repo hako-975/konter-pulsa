@@ -44,7 +44,7 @@ $data_profile = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT * FROM user WH
 					<?php foreach ($transaksi as $dt): ?>
 						<tr>
 							<td><?= $i++; ?></td>
-							<td><?= $dt['tanggal_transaksi']; ?></td>
+							<td><?= date("d-m-Y, H:i", strtotime($dt['tanggal_transaksi'])); ?></td>
 							<td>Rp. <?= str_replace(",", ".", number_format($dt['total_harga'])); ?></td>
 							<td>Rp. <?= str_replace(",", ".", number_format($dt['bayar'])); ?></td>
 							<td>Rp. <?= str_replace(",", ".", number_format($dt['kembalian'])); ?></td>
