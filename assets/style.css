@@ -65,6 +65,15 @@ body {
     padding: 10px;
 }
 
+.form-cari-input input {
+    color: #495057;
+    background-color: #fff;
+    border: 1px solid #403B4A;
+    border-radius: 0.25rem;
+    padding: 0.55rem 0.75rem;
+}
+
+
 .bg-button {
     background: rgb(255,128,8);
     background: linear-gradient(90deg, rgba(255,128,8,1) 0%, rgba(255,200,55,1) 100%);

@@ -18,6 +18,16 @@ $data_profile = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT * FROM user WH
 if (isset($_POST['btnBayar'])) {
 	$bayar = htmlspecialchars($_POST['bayar']);
 	$kembalian = htmlspecialchars($_POST['kembalian']);
+	
+	if ($bayar < $data_transaksi['total_harga']) {
+		echo "
+			<script>
+				alert('Uang yang dibayarkan kurang dari total harga!');
+				window.history.back();
+			</script>
+		";
+		exit;
+	}
 
 	$update_transaksi = mysqli_query($koneksi, "UPDATE transaksi SET bayar = '$bayar', kembalian = '$kembalian' WHERE id_transaksi = '$id_transaksi'");
 

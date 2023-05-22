@@ -8,6 +8,13 @@ if (!isset($_SESSION['id_user'])) {
 
 $jenis_barang = mysqli_query($koneksi, "SELECT * FROM jenis_barang ORDER BY jenis_barang ASC");
 
+if (isset($_GET['btnCari'])) {
+	$cari = $_GET['cari'];
+	$jenis_barang = mysqli_query($koneksi, "SELECT * FROM jenis_barang 
+		WHERE jenis_barang LIKE '%$cari%'
+		ORDER BY jenis_barang ASC");
+}
+
 $id_user = htmlspecialchars($_SESSION['id_user']);
 $data_profile = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT * FROM user WHERE id_user = '$id_user'"));
 ?>
@@ -25,8 +32,18 @@ $data_profile = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT * FROM user WH
 	<?php include_once '../include/sidebar.php'; ?>
 	<div class="main-content">
 		<div class="my">
-			<h1 class="inline-block">Jenis Barang</h1>
+			<h1>Jenis Barang</h1>
+			<form method="get" class="inline-block form-cari-input">
+				<input type="text" name="cari" value="<?= (isset($_GET['btnCari'])? $cari : ''); ?>">
+				<button type="submit" class="btn" name="btnCari">Cari</button>
+				<?php if (isset($_GET['btnCari'])): ?>
+					<a href="jenis_barang.php" class="btn">X</a>
+				<?php endif ?>
+			</form>
 			<a href="<?= BASE_URL; ?>jenis_barang/tambah_jenis_barang.php" class="btn float-right">Tambah Jenis Barang</a>
+			<?php if (isset($_GET['btnCari'])): ?>
+				<h2>Data ditemukan: <?= mysqli_num_rows($jenis_barang); ?></h2>
+			<?php endif ?>
 			<table border="1" cellpadding="10" cellspacing="0">
 				<thead class="thead">
 					<tr>
