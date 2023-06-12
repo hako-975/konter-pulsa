@@ -37,6 +37,19 @@ if (isset($_POST['btnTambahDetailTransaksi'])) {
 		exit;
 	}
 
+	$data_barang = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT * FROM barang INNER JOIN jenis_barang ON barang.id_jenis_barang = jenis_barang.id_jenis_barang WHERE id_barang = '$id_barang'"));
+
+	// cek kuantitas
+	if ($data_barang['kuantitas'] < $kuantitas) {
+		echo "
+			<script>
+				alert('Stok Barang kurang dari jumlah beli!');
+				window.history.back();
+			</script>
+		";
+		exit;
+	}
+
 	$tambah_detail_transaksi = mysqli_query($koneksi, "INSERT INTO detail_transaksi VALUES('', '$id_transaksi', '$id_barang', '$kuantitas', '$subtotal')");
 
 	$get_total_harga = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT SUM(subtotal) as total_harga FROM detail_transaksi WHERE id_transaksi = '$id_transaksi'"));
